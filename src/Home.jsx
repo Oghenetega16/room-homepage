@@ -1,29 +1,78 @@
+import { useState } from "react"
+
 export default function Home() {
+    const [showMenu, setShowMenu] = useState(false)
+    const [step, setStep] = useState(1)
+
+    function nextImage() {
+        if (step === 4) {
+            setStep(1)
+        } else {
+            setStep(step + 1)
+        }
+    }
+
+    function prevImage() {
+        if (step === 1) {
+            setStep(3)
+        } else {
+            setStep(step - 1)
+        }
+    }
+
     return (
         <div className="font-display">
-            <div className="">
+            <div>
                 <div className="relative">
-                    <img className="w-full h-full" src="./assets/images/mobile-image-hero-1.jpg" alt="" />
-                    <div className="flex items-center absolute top-0 mt-8 px-5 w-full h-fit">
-                        <img className="w-fit h-fit" src="./assets/images/icon-hamburger.svg" alt="hamburger icon" />
+                    <img className="w-full h-full" 
+                        src={
+                            step === 1 ? './assets/images/mobile-image-hero-1.jpg' :
+                            step === 2 ? './assets/images/mobile-image-hero-3.jpg' :
+                            './assets/images/mobile-image-hero-2.jpg'
+                            }
+                        alt=""    
+                    />
+                    <div className={`${!showMenu ? 'flex' : 'hidden'} items-center absolute top-0 mt-8 px-5 w-full h-fit`}>
+                        <img className="cursor-pointer" 
+                            src="./assets/images/icon-hamburger.svg" 
+                            alt="hamburger icon" 
+                            onClick={() => setShowMenu(true)}
+                        />
                         <h1 className="text-2xl text-white font-semibold w-full text-center">room</h1>
                     </div>
                 </div>
-                <div className="absolute top-0 flex justify-between items-center w-full py-10 px-5 bg-white hidden">
-                    <img src="./assets/images/icon-close.svg" alt="" />
+
+                <div className={`absolute top-0 ${showMenu ? 'flex' : 'hidden'} justify-between items-center w-full py-10 px-5 bg-white`}>
+                    <img src="./assets/images/icon-close.svg" 
+                        alt="close icon" 
+                        className="cursor-pointer"
+                        onClick={() => setShowMenu(false)}
+                    />
                     <ul className="flex gap-7 font-semibold">
-                        <li>home</li>
-                        <li>shop</li>
-                        <li>about</li>
-                        <li>contact</li>
+                        <li className="cursor-pointer">home</li>
+                        <li className="cursor-pointer">shop</li>
+                        <li className="cursor-pointer">about</li>
+                        <li className="cursor-pointer">contact</li>
                     </ul>
                 </div>
             </div>
 
             <div className="py-12 px-7 relative">
-                <div className="inline-flex w-28 h-15 items-center justify-between absolute -top-15 right-0">
-                    <div className=""><img className="bg-black" src="./assets/images/icon-angle-left.svg" alt="left angle icon" /></div>
-                    <div className=""><img className="bg-black" src="./assets/images/icon-angle-right.svg" alt="right angle icon" /></div>
+                <div className="inline-flex items-center justify-between absolute -top-15 right-0">
+                    <div className="w-14 h-15 bg-black flex justify-center items-center">
+                        <img className="w-3 h-5 cursor-pointer" 
+                            src="./assets/images/icon-angle-left.svg"
+                            alt="left angle icon" 
+                            onClick={nextImage}
+                            />
+                    </div>
+                    <div className="w-14 h-15 bg-black flex justify-center items-center">
+                        <img className="w-3 h-5 cursor-pointer"
+                            src="./assets/images/icon-angle-right.svg"
+                            alt="right angle icon" 
+                            onClick={prevImage}
+                            />
+                    </div>
                 </div>
                 <h1 className="text-black text-3xl font-bold mb-2">Discover innovative ways to decorate</h1>
                 <p className="text-very-dark-gray">We provide unmatched quality, comfort, and style
