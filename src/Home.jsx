@@ -34,8 +34,8 @@ export default function Home() {
                         <img className="w-full h-full" 
                             src={
                                 step === 1 ? './assets/images/mobile-image-hero-1.jpg' :
-                                step === 2 ? './assets/images/mobile-image-hero-3.jpg' :
-                                './assets/images/mobile-image-hero-2.jpg'
+                                step === 2 ? './assets/images/mobile-image-hero-2.jpg' :
+                                './assets/images/mobile-image-hero-3.jpg'
                                 }
                             alt="chair"    
                         />
@@ -66,7 +66,7 @@ export default function Home() {
             </div>
 
             <div className="py-12 px-7 relative lg:col-span-2 lg:p-12 xl:px-18 xl:pt-25">
-                <div className="inline-flex items-center justify-between absolute -top-15 right-0 lg:absolute lg:top-83 lg:right-73">
+                <div className="inline-flex items-center justify-between absolute -top-15 right-0 lg:fixed lg:top-83 lg:right-auto lg:left-153">
                     <div className="w-14 h-15 bg-black flex justify-center items-center lg:w-14.5 xl:w-18">
                         <img className="w-3 h-5 cursor-pointer" 
                             src="./assets/images/icon-angle-left.svg"
