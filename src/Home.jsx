@@ -144,6 +144,3 @@ export default function Home() {
         </div>
     )
 }
-
-// What is left to do?
-// 1. Desktop responsiveness
