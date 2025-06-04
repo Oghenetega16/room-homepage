@@ -1,6 +1,6 @@
 export default function InfoSection({ step }) {
     return (
-        <div>
+        <div className="">
             {step === 1 ? 
                 (<div>
                     <h1 className="text-black text-4xl font-bold mb-2 sm:text-5xl lg:text-4xl">Discover innovative ways to decorate</h1>

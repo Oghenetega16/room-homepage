@@ -34,7 +34,7 @@ export default function Home() {
                 </nav>
             </section>
 
-            <section className="py-12 px-7 relative lg:col-span-2 lg:p-12 xl:px-18 xl:pt-25">
+            <section className="py-12 px-7 relative lg:col-span-2 lg:p-12 xl:px-18 xl:pt-25 lg:max-h-1/2">
                 <SlideControls prevImage={prevImage} nextImage={nextImage} />
                 <InfoSection step={step} />
             </section>
